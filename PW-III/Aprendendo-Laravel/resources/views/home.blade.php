@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('style.css')}}">
 </head>
 <body>
     @auth 
@@ -14,28 +15,39 @@
     </form>
 
     @else
-        <div style="border: 3px solid black">
+    <header>
+        <button id="cadastro">Cadastrar</button>
+        <dialog id="modal">
+        <div class="form">
             <h2>Register</h2>
-            <form action="/register" method="post">
+            <form class="query" action="/register" method="post">
                 @csrf
-                <input type="text" name="name" placeholder="name">
-                <input type="email" placeholder="email@email.com" name="email">
-                <input type="password" placeholder="senha" name="password">
-                <input type="submit" value="Registrar">
+                <input class="input" type="text" name="name" placeholder="name">
+                <input class="input"type="email" placeholder="email@email.com" name="email">
+                <input class="input"type="password" placeholder="senha" name="password">
+                <input class="input"type="submit" value="Registrar">
+                <button id="ok">fechar</button>
             </form>
         </div>
-        <br>
-        <div style="border: 3px solid black">
+        </dialog>
+
+        <button id="login">Login</button>
+        <dialog id="modal2">
+        <div class="form">
             <h2>Login</h2>
-            <form action="/login" method="post">
+            <form class="query" action="/login" method="post">
                 @csrf
-                <input type="text" name="loginname" placeholder="name">
-                <input type="password" placeholder="senha" name="loginpassword">
-                <input type="submit" value="Confirmar">
+                <input class="input"type="text" name="loginname" placeholder="name">
+                <input class="input"type="password" placeholder="senha" name="loginpassword">
+                <input class="input"type="submit" value="Confirmar">
+                <button id="ok2">fechar</button>
             </form>
         </div>
+        </dialog>
+
+    </header>
     @endauth
 
-
+        <script src="{{asset('script.js')}}"></script>
     </body>
 </html>
