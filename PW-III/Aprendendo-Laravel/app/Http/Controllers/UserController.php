@@ -14,11 +14,12 @@ class UserController extends Controller
             'loginpassword' => 'required'
         ]);
 
-        if(auth()->attempt(['name' => $informed_inputs['loginname'], 'password' => $informed_inputs['loginpassword']])){
+        if(auth('')->attempt(['name' => $informed_inputs['loginname'], 'password' => $informed_inputs['loginpassword']])){
             $request->session()->regenerate();
         }
 
-        return redirect('/');
+        return session()->all();
+        // return redirect('/');
     }
 
     public function logout(){
